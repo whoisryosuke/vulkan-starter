@@ -1,6 +1,5 @@
 # Set variables
-set(PROJECT_NAME vulkan-starter)
-set(PROJECT_EXE VulkanStarter)
+set(PROJECT_NAME VulkanStarter)
 
 # C++ 20+
 set(CMAKE_CXX_STANDARD 20)
@@ -23,7 +22,7 @@ file(GLOB src
      "src/*.h"
      "src/*.cpp"
 )
-add_executable(${PROJECT_EXE} ${src})
+add_executable(${PROJECT_NAME} ${src})
 
 # Dependencies
 add_subdirectory(external/glfw)
@@ -32,4 +31,4 @@ include_directories(external/imgui)
 
 # Libraries
 set(GLFW_SOURCES libs/glfw/lib-vc2022/glfw3.lib)
-target_link_libraries(${PROJECT_EXE} glfw)
+target_link_libraries(${PROJECT_NAME} glfw)

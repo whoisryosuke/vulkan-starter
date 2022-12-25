@@ -13,4 +13,4 @@ cmake_minimum_required(VERSION 3.10)
 project(${PROJECT_NAME} VERSION 1.0)
 
 # Create an executable for your project
-add_executable(VulkanStarter main.cpp)
+add_executable(VulkanStarter src/main.cpp)

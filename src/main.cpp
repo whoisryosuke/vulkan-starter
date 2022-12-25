@@ -1,8 +1,13 @@
+#include <cstdint>
 #include <iostream>
-using namespace std;
+#include "App.h"
 
-int main()
+int main(int argc, char *argv[])
 {
-    cout << "Hello World!";
+    // Initialize our app
+    App *app = new App();
+    // Run the entire app. This starts an infinite loop until we exit.
+    app->Run();
+
     return 0;
 }

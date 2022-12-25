@@ -14,7 +14,8 @@ App::App()
 void App::Run()
 {
     // Initialize anything
-    if (!Init()) {
+    if (!Init())
+    {
         return;
     }
 
@@ -33,7 +34,7 @@ void App::Run()
 
 bool App::Init()
 {
-    // Initalize the window here and hydrate 
+    // Initalize the window here and hydrate
     m_window_container->Init();
     // Set a pointer to this Window class in GLFW
     // Lets us access the Window class methods in callbacks
@@ -47,15 +48,16 @@ bool App::Init()
     HWND hwnd = glfwGetWin32Window(m_window_container->m_window);
 
     // Initialize the DX12 renderer
-    if (!m_renderer->Init(hwnd)) {
+    if (!m_renderer->Init(hwnd))
+    {
         m_renderer->CleanupDevice();
         return true;
     }
 
     // Initialize the UI (aka imgui). Requires the window context + DX12 device.
-    m_ui->Init(hwnd, m_renderer->m_pd3dDevice, m_renderer->m_pd3dSrvDescHeap);
+    m_ui->Init(m_window_container->m_window);
 
-	return true;
+    return true;
 }
 
 void App::Render()
@@ -83,8 +85,8 @@ void App::HandleResize(int width, int height)
     m_renderer->HandleResize(width, height);
 }
 
-void App::HandleResizeCallback(GLFWwindow* window, int width, int height)
+void App::HandleResizeCallback(GLFWwindow *window, int width, int height)
 {
-    App* app = static_cast<App*>(glfwGetWindowUserPointer(window));
+    App *app = static_cast<App *>(glfwGetWindowUserPointer(window));
     app->HandleResize(width, height);
 }
